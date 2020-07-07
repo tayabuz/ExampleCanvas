@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.examplecanvas.Artifacts.ArtifactDrawer
 import com.example.examplecanvas.Artifacts.FillArtifact
 import com.example.examplecanvas.Artifacts.RectFillArtifact
+import com.example.examplecanvas.Artifacts.RoundedRectArtifact
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,12 +20,13 @@ class MainActivity : AppCompatActivity() {
 
         val fill = FillArtifact(this, Color.GREEN)
         val rect = RectFillArtifact(this, Color.BLACK, Rect(40, 40, 200,  200))
-        var art = ArtifactDrawer(arrayOf(fill,rect))
+        val roundRect = RoundedRectArtifact(this, Color.RED, 20F, Rect(220, 40, 450,  200))
+        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect))
        // var art = ArtifactDrawer()
        // art.AddAll(listOf(fill, rect))
 
 
-        var layout = findViewById<ConstraintLayout>(R.id.layout)
+        val layout = findViewById<ConstraintLayout>(R.id.layout)
         art.Artifacts.forEach{ (layout.addView(it))}
 
     }
