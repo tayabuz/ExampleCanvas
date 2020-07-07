@@ -9,6 +9,7 @@ import com.example.examplecanvas.Artifacts.ArtifactDrawer
 import com.example.examplecanvas.Artifacts.FillArtifact
 import com.example.examplecanvas.Artifacts.RectFillArtifact
 import com.example.examplecanvas.Artifacts.RoundedRectArtifact
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +27,8 @@ class MainActivity : AppCompatActivity() {
        // art.AddAll(listOf(fill, rect))
 
 
-        val layout = findViewById<ConstraintLayout>(R.id.layout)
-        art.Artifacts.forEach{ (layout.addView(it))}
+
+        art.Artifacts.forEach{ (constLayout.addView(it))}
 
     }
 }
