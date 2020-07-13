@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         val roundRect = RoundedRectArtifact(this, Color.RED, 20F, Rect(220, 40, 450,  200))
         //val img = ImageArtifact(this,  BitmapFactory.decodeResource(resources, R.drawable.rubix_cube), Point(0,0))
         val img = ImageArtifact(this, R.drawable.rubix_cube, Point(0,0))
-        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img))
+        val imgRound = RoundedImageArtifact(this, R.drawable.sample, Point(0, 250), 100f)
+        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img, imgRound))
        // var art = ArtifactDrawer()
        // art.AddAll(listOf(fill, rect))
 
