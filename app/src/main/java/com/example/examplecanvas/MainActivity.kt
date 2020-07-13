@@ -1,14 +1,13 @@
 package com.example.examplecanvas
 
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.graphics.Point
 import android.graphics.Rect
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.examplecanvas.Artifacts.ArtifactDrawer
-import com.example.examplecanvas.Artifacts.FillArtifact
-import com.example.examplecanvas.Artifacts.RectFillArtifact
-import com.example.examplecanvas.Artifacts.RoundedRectArtifact
+import com.example.examplecanvas.Artifacts.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -22,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         val fill = FillArtifact(this, Color.GREEN)
         val rect = RectFillArtifact(this, Color.BLACK, Rect(40, 40, 200,  200))
         val roundRect = RoundedRectArtifact(this, Color.RED, 20F, Rect(220, 40, 450,  200))
-        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect))
+        //val img = ImageArtifact(this,  BitmapFactory.decodeResource(resources, R.drawable.rubix_cube), Point(0,0))
+        val img = ImageArtifact(this, R.drawable.rubix_cube, Point(0,0))
+        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img))
        // var art = ArtifactDrawer()
        // art.AddAll(listOf(fill, rect))
 

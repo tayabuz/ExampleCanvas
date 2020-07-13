@@ -7,7 +7,7 @@ import android.view.View
 abstract class DrawArtifact(context: Context) : View(context) {
     private lateinit var extraBitmap: Bitmap
     protected lateinit var extraCanvas: Canvas
-    protected lateinit var paint: Paint
+    protected var paint: Paint = Paint()
 
     override fun onDraw(canvas: Canvas) {
         canvas.drawBitmap(extraBitmap, 0f, 0f, null)
