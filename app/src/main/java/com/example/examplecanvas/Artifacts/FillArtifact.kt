@@ -6,7 +6,7 @@ import android.graphics.Paint
 
 class FillArtifact(context: Context, colorForFillArtifact: Int) : DrawArtifact(context) {
     init {
-        paint = Paint().apply {
+        paint.apply {
             color = colorForFillArtifact
             style = Paint.Style.FILL
         }

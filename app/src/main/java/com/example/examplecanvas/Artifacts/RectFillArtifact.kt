@@ -8,7 +8,7 @@ import android.graphics.Rect
 class RectFillArtifact(
     context: Context, colorForFillArtifact: Int, val rect: Rect) : DrawArtifact(context) {
     init{
-        paint = Paint().apply {
+        paint.apply {
             color = colorForFillArtifact
             style = Paint.Style.FILL
         }

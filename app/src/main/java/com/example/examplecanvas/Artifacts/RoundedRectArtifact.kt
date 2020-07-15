@@ -10,7 +10,7 @@ class RoundedRectArtifact(context: Context, colorForFillArtifact: Int, val radiu
 
     init
     {
-        paint = Paint().apply {
+        paint.apply {
             color = colorForFillArtifact
             style = Paint.Style.FILL
         }
