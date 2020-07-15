@@ -1,12 +1,11 @@
 package com.example.examplecanvas
 
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.examplecanvas.Artifacts.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,7 +23,9 @@ class MainActivity : AppCompatActivity() {
         //val img = ImageArtifact(this,  BitmapFactory.decodeResource(resources, R.drawable.rubix_cube), Point(0,0))
         val img = ImageArtifact(this, R.drawable.rubix_cube, Point(0,0))
         val imgRound = RoundedImageArtifact(this, R.drawable.sample, Point(0, 250), 100f)
-        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img, imgRound))
+        val text = StringArtifact(this,
+            Point(150,50),"Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!!", Typeface.create("Arial",Typeface.BOLD), Color.GRAY, 45f)
+        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img, imgRound, text))
        // var art = ArtifactDrawer()
        // art.AddAll(listOf(fill, rect))
 
