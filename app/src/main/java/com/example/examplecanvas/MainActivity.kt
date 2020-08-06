@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
         val imgRound = RoundedImageArtifact(this, R.drawable.sample, Point(0, 250), 100f)
         val text = StringArtifact(this,
             Point(150,50),"Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!! Hello World!!!", Typeface.create("Arial",Typeface.BOLD), Color.GRAY, 45f)
-        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img, imgRound, text))
+        val roundedFillArtifact = RoundedFillArtifact(this, Color.LTGRAY, 50f)
+        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img, imgRound, text, roundedFillArtifact))
        // var art = ArtifactDrawer()
        // art.AddAll(listOf(fill, rect))
 
