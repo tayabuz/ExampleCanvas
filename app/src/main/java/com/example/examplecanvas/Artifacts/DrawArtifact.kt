@@ -13,6 +13,7 @@ abstract class DrawArtifact(context: Context) : View(context) {
         canvas.drawBitmap(extraBitmap, 0f, 0f, null)
         super.onDraw(canvas)
     }
+
     override fun onSizeChanged(width: Int, height: Int, oldWidth: Int, oldHeight: Int) {
         super.onSizeChanged(width, height, oldWidth, oldHeight)
 

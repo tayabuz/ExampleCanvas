@@ -13,6 +13,7 @@ class ArtifactDrawer constructor()
     fun Add(artifact: DrawArtifact){
         Artifacts.add(artifact)
     }
+
     fun AddAll(artifacts: Iterable<DrawArtifact>){
         Artifacts.addAll(artifacts)
     }

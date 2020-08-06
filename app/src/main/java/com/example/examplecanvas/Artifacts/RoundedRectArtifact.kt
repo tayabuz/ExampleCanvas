@@ -15,6 +15,7 @@ class RoundedRectArtifact(context: Context, colorForFillArtifact: Int, val radiu
             style = Paint.Style.FILL
         }
     }
+
     override fun onDraw(canvas: Canvas) {
         extraCanvas.drawRoundRect(RectF(rect), radius, radius, paint)
         super.onDraw(canvas)
