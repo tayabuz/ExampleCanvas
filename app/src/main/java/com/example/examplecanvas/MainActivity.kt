@@ -28,8 +28,10 @@ class MainActivity : AppCompatActivity() {
         val roundedFillArtifact = RoundedFillArtifact(this, Color.LTGRAY, 50f)
         val fittedInRectStringArtifact = FittedInRectStringArtifact(this,
             Rect(50,50, 200, 500),"Qwerty!!!", Typeface.create("Arial",Typeface.BOLD), Color.BLACK)
+        val centeredStringArtifact=  CenteredStringArtifact(this,
+        Rect(250,250, 500, 500),"Qwerty!!!", Typeface.create("Arial",Typeface.BOLD), Color.BLACK)
 
-        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img, imgRound, text, roundedFillArtifact, fittedInRectStringArtifact))
+        val art = ArtifactDrawer(arrayOf(fill, rect, roundRect, img, imgRound, text, roundedFillArtifact, fittedInRectStringArtifact, centeredStringArtifact))
        // var art = ArtifactDrawer()
        // art.AddAll(listOf(fill, rect))
 
