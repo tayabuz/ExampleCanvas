@@ -36,7 +36,7 @@ open class FittedInRectStringArtifact(context: Context, val rect: Rect, val text
         }
     }
 
-    protected fun getTextHeight(paint: Paint): Int {
+    private fun getTextHeight(paint: Paint): Int {
         return ceil(paint.fontMetrics.descent - paint.fontMetrics.ascent).toInt()
     }
 
