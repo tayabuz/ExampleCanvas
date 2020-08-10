@@ -4,8 +4,6 @@ import android.content.Context
 import android.graphics.*
 import android.text.TextPaint
 import kotlin.math.ceil
-import kotlin.math.floor
-import kotlin.math.roundToInt
 
 open class FittedInRectStringArtifact(context: Context, val rect: Rect, val text: String, val typefaceFont: Typeface, val colorForText: Int) : DrawArtifact(context) {
     protected var textPaint: TextPaint = TextPaint()

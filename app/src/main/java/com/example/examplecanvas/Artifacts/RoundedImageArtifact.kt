@@ -2,7 +2,6 @@ package com.example.examplecanvas.Artifacts
 
 import android.content.Context
 import android.graphics.*
-import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.core.graphics.drawable.toBitmap
 
