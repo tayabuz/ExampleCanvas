@@ -48,22 +48,22 @@ open class FittedInRectStringArtifact(context: Context, val rect: Rect, val text
         return bounds
     }
 
-    protected open fun drawText()
+    protected open fun drawText(canvas: Canvas)
     {
         setTextSizeForWidth(textPaint, rect, text)
         val bounds = calculateBounds(textPaint, rect, text)
 
-        extraCanvas.drawText(text, rect.left.toFloat(),   bounds.top - textPaint.ascent(), textPaint)
+        canvas.drawText(text, rect.left.toFloat(),   bounds.top - textPaint.ascent(), textPaint)
 
-        extraCanvas.drawLine(rect.left.toFloat(), rect.exactCenterY(), rect.right.toFloat(), rect.exactCenterY(), paint) //for testing
-        extraCanvas.drawRect(rect, paint) //for testing
+        canvas.drawLine(rect.left.toFloat(), rect.exactCenterY(), rect.right.toFloat(), rect.exactCenterY(), paint) //for testing
+        canvas.drawRect(rect, paint) //for testing
 
-        extraCanvas.save()
-        extraCanvas.restore()
+        canvas.save()
+        canvas.restore()
     }
 
     override fun onDraw(canvas: Canvas) {
-        drawText()
+        drawText(canvas)
         super.onDraw(canvas)
     }
 }

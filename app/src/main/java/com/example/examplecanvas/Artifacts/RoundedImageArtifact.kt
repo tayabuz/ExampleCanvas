@@ -12,7 +12,7 @@ class RoundedImageArtifact(context: Context, val bitmap: Bitmap, val point: Poin
     override fun onDraw(canvas: Canvas) {
         var roundBitmap = RoundedBitmapDrawableFactory.create(context.resources, bitmap)
         roundBitmap.cornerRadius = radius
-        extraCanvas.drawBitmap(roundBitmap.toBitmap(), null, Rect(point.x, point.y, width, height), paint)
+        canvas.drawBitmap(roundBitmap.toBitmap(), null, Rect(point.x, point.y, canvas.width, canvas.height), paint)
         super.onDraw(canvas)
     }
 }

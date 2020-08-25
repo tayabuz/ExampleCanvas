@@ -5,7 +5,9 @@ import android.graphics.Canvas
 import android.graphics.Point
 import android.graphics.Typeface
 import android.os.Build
-import android.text.*
+import android.text.Layout
+import android.text.StaticLayout
+import android.text.TextPaint
 import androidx.core.graphics.withTranslation
 
 
@@ -29,12 +31,12 @@ class StringArtifact(context: Context, val point: Point, val text: String, val t
     }
 
     override fun onDraw(canvas: Canvas) {
-        textLayout = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) StaticLayout.Builder.obtain(text, 0, text.length, textPaint, width - point.x).build()
-        else { StaticLayout(text, textPaint, width - point.x, Layout.Alignment.ALIGN_NORMAL, 1f, 0f, false) }
+        textLayout = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) StaticLayout.Builder.obtain(text, 0, text.length, textPaint, canvas.width - point.x).build()
+        else { StaticLayout(text, textPaint, canvas.width - point.x, Layout.Alignment.ALIGN_NORMAL, 1f, 0f, false) }
 
-        textLayout.draw(extraCanvas, point.x, point.y)
-        extraCanvas.save()
-        extraCanvas.restore()
+        textLayout.draw(canvas, point.x, point.y)
+        canvas.save()
+        canvas.restore()
         super.onDraw(canvas)
     }
 }

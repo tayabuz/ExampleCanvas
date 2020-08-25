@@ -8,7 +8,7 @@ class ImageArtifact(context: Context, val bitmap:Bitmap, val point: Point): Draw
     constructor(context: Context, resourceID: Int, point: Point) : this(context, BitmapFactory.decodeResource(context.resources, resourceID), point)
 
     override fun onDraw(canvas: Canvas) {
-        extraCanvas.drawBitmap(bitmap, null, Rect(point.x, point.y, width, height), paint)
+        canvas.drawBitmap(bitmap, null, Rect(point.x, point.y, canvas.width, canvas.height), paint)
         super.onDraw(canvas)
     }
 }

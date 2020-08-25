@@ -15,7 +15,7 @@ class FillArtifact(context: Context, colorForFillArtifact: Int) : DrawArtifact(c
     }
 
     override fun onDraw(canvas: Canvas) {
-        extraCanvas.drawPaint(paint)
+        canvas.drawPaint(paint)
         super.onDraw(canvas)
     }
 }
