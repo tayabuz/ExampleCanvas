@@ -1,9 +1,9 @@
 package com.example.examplecanvas.Artifacts
 
-import android.content.Context
-import android.graphics.*
-import android.view.View
+import android.graphics.Canvas
+import android.graphics.Paint
 
-abstract class DrawArtifact(context: Context) : View(context) {
+abstract class DrawArtifact {
     protected var paint: Paint = Paint()
+    abstract fun onDraw(canvas: Canvas)
 }

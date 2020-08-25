@@ -1,11 +1,10 @@
 package com.example.examplecanvas.Artifacts
 
-import android.content.Context
 import android.graphics.*
 import android.text.TextPaint
 import kotlin.math.ceil
 
-open class FittedInRectStringArtifact(context: Context, val rect: Rect, val text: String, val typefaceFont: Typeface, val colorForText: Int) : DrawArtifact(context) {
+open class FittedInRectStringArtifact(val rect: Rect, val text: String, val typefaceFont: Typeface, val colorForText: Int) : DrawArtifact() {
     protected var textPaint: TextPaint = TextPaint()
 
     init
@@ -64,6 +63,5 @@ open class FittedInRectStringArtifact(context: Context, val rect: Rect, val text
 
     override fun onDraw(canvas: Canvas) {
         drawText(canvas)
-        super.onDraw(canvas)
     }
 }

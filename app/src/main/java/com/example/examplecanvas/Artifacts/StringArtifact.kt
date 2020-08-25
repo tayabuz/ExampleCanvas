@@ -1,6 +1,5 @@
 package com.example.examplecanvas.Artifacts
 
-import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Point
 import android.graphics.Typeface
@@ -11,7 +10,7 @@ import android.text.TextPaint
 import androidx.core.graphics.withTranslation
 
 
-class StringArtifact(context: Context, val point: Point, val text: String, val typefaceFont: Typeface, val colorForText: Int, val fontSize: Float) : DrawArtifact(context) {
+class StringArtifact(val point: Point, val text: String, val typefaceFont: Typeface, val colorForText: Int, val fontSize: Float) : DrawArtifact() {
 
     private var textPaint: TextPaint = TextPaint()
     private lateinit var textLayout: StaticLayout
@@ -37,6 +36,5 @@ class StringArtifact(context: Context, val point: Point, val text: String, val t
         textLayout.draw(canvas, point.x, point.y)
         canvas.save()
         canvas.restore()
-        super.onDraw(canvas)
     }
 }

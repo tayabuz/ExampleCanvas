@@ -1,10 +1,9 @@
 package com.example.examplecanvas.Artifacts
 
-import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 
-class FillArtifact(context: Context, colorForFillArtifact: Int) : DrawArtifact(context) {
+class FillArtifact(colorForFillArtifact: Int) : DrawArtifact() {
 
     init
     {
@@ -16,6 +15,5 @@ class FillArtifact(context: Context, colorForFillArtifact: Int) : DrawArtifact(c
 
     override fun onDraw(canvas: Canvas) {
         canvas.drawPaint(paint)
-        super.onDraw(canvas)
     }
 }

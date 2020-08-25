@@ -14,7 +14,7 @@ class ArtifactDrawer constructor()
         val extraBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val extraCanvas = Canvas(extraBitmap)
         for (artifact in Artifacts){
-            artifact.draw(extraCanvas)
+            artifact.onDraw(extraCanvas)
         }
         return extraBitmap
     }

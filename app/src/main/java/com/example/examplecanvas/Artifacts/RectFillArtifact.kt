@@ -1,12 +1,10 @@
 package com.example.examplecanvas.Artifacts
 
-import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 
-class RectFillArtifact(context: Context, colorForFillArtifact: Int, val rect: Rect) : DrawArtifact(context) {
+class RectFillArtifact(colorForFillArtifact: Int, val rect: Rect) : DrawArtifact() {
 
     init
     {
@@ -18,6 +16,5 @@ class RectFillArtifact(context: Context, colorForFillArtifact: Int, val rect: Re
 
     override fun onDraw(canvas: Canvas) {
         canvas.drawRect(rect, paint)
-        super.onDraw(canvas)
     }
 }

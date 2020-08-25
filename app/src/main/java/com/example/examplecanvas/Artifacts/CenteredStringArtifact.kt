@@ -1,12 +1,11 @@
 package com.example.examplecanvas.Artifacts
 
-import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.Typeface
 
 
-class CenteredStringArtifact(context: Context, rect: Rect, text: String, typefaceFont: Typeface, colorForText: Int) : FittedInRectStringArtifact(context, rect, text, typefaceFont, colorForText) {
+class CenteredStringArtifact(rect: Rect, text: String, typefaceFont: Typeface, colorForText: Int) : FittedInRectStringArtifact(rect, text, typefaceFont, colorForText) {
 
     override fun drawText(canvas: Canvas)
     {
