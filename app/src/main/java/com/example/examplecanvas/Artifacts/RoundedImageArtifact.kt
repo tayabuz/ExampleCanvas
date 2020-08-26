@@ -5,13 +5,28 @@ import android.graphics.*
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.core.graphics.drawable.toBitmap
 
-class RoundedImageArtifact(val context: Context, val bitmap: Bitmap, val point: Point, val radius: Float): DrawArtifact() {
+class RoundedImageArtifact(
+    private val context: Context,
+    private val bitmap: Bitmap,
+    private val rect: RectF,
+    private val radius: Float
+) : DrawArtifact() {
 
-    constructor(context: Context, resourceID: Int, point: Point,  radius: Float) : this(context, BitmapFactory.decodeResource(context.resources, resourceID), point, radius)
+    constructor(context: Context, resourceID: Int, rect: RectF, radius: Float) : this(
+        context,
+        BitmapFactory.decodeResource(context.resources, resourceID),
+        rect,
+        radius
+    )
 
     override fun onDraw(canvas: Canvas) {
-        var roundBitmap = RoundedBitmapDrawableFactory.create(context.resources, bitmap)
+        val roundBitmap = RoundedBitmapDrawableFactory.create(context.resources, bitmap)
         roundBitmap.cornerRadius = radius
-        canvas.drawBitmap(roundBitmap.toBitmap(), null, Rect(point.x, point.y, canvas.width, canvas.height), paint)
+        canvas.drawBitmap(
+            roundBitmap.toBitmap(),
+            null,
+            rect,
+            paint
+        )
     }
 }

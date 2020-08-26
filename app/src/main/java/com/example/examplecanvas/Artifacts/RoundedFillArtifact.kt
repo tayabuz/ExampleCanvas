@@ -6,8 +6,7 @@ import android.graphics.RectF
 
 class RoundedFillArtifact(colorForFillArtifact: Int, val radius: Float) : DrawArtifact() {
 
-    init
-    {
+    init {
         paint.apply {
             color = colorForFillArtifact
             style = Paint.Style.FILL
@@ -15,6 +14,11 @@ class RoundedFillArtifact(colorForFillArtifact: Int, val radius: Float) : DrawAr
     }
 
     override fun onDraw(canvas: Canvas) {
-        canvas.drawRoundRect(RectF(0f,0f, canvas.width.toFloat(), canvas.height.toFloat()), radius, radius, paint)
+        canvas.drawRoundRect(
+            RectF(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat()),
+            radius,
+            radius,
+            paint
+        )
     }
 }

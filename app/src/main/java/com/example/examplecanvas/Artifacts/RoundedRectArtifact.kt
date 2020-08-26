@@ -2,20 +2,25 @@ package com.example.examplecanvas.Artifacts
 
 import android.graphics.Canvas
 import android.graphics.Paint
-import android.graphics.Rect
 import android.graphics.RectF
 
-class RoundedRectArtifact(colorForFillArtifact: Int, val radius: Float, val rect: Rect) : DrawArtifact() {
+class RoundedRectArtifact(
+    val colorForFillArtifact: Int,
+    val radius: Float,
+    val rect: RectF,
+    val mStrokeWidth: Float
+) :
+    DrawArtifact() {
 
-    init
-    {
+    init {
         paint.apply {
             color = colorForFillArtifact
             style = Paint.Style.FILL
+            strokeWidth = mStrokeWidth
         }
     }
 
     override fun onDraw(canvas: Canvas) {
-        canvas.drawRoundRect(RectF(rect), radius, radius, paint)
+        canvas.drawRoundRect(rect, radius, radius, paint)
     }
 }

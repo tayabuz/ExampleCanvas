@@ -4,11 +4,15 @@ import android.graphics.*
 import android.text.TextPaint
 import kotlin.math.ceil
 
-open class FittedInRectStringArtifact(val rect: Rect, val text: String, val typefaceFont: Typeface, val colorForText: Int) : DrawArtifact() {
+open class FittedInRectStringArtifact(
+    val rect: Rect,
+    val text: String,
+    val typefaceFont: Typeface,
+    val colorForText: Int
+) : DrawArtifact() {
     protected var textPaint: TextPaint = TextPaint()
 
-    init
-    {
+    init {
         textPaint.apply {
             color = colorForText
             isAntiAlias = true
@@ -26,8 +30,7 @@ open class FittedInRectStringArtifact(val rect: Rect, val text: String, val type
         var desiredTextSize = testTextSize * rect.width() / paint.measureText(text)
         paint.textSize = desiredTextSize
 
-        while (getTextHeight(textPaint) > rect.height())
-        {
+        while (getTextHeight(textPaint) > rect.height()) {
             desiredTextSize -= 0.1f
             paint.textSize = desiredTextSize
         }
@@ -37,7 +40,7 @@ open class FittedInRectStringArtifact(val rect: Rect, val text: String, val type
         return ceil(paint.fontMetrics.descent - paint.fontMetrics.ascent).toInt()
     }
 
-    protected fun calculateBounds(paint: Paint, rect: Rect, text: String) : RectF {
+    protected fun calculateBounds(paint: Paint, rect: Rect, text: String): RectF {
         val bounds = RectF(rect)
         bounds.right = paint.measureText(text, 0, text.length)
         bounds.bottom = paint.descent() - paint.ascent()
@@ -47,14 +50,19 @@ open class FittedInRectStringArtifact(val rect: Rect, val text: String, val type
         return bounds
     }
 
-    protected open fun drawText(canvas: Canvas)
-    {
+    protected open fun drawText(canvas: Canvas) {
         setTextSizeForWidth(textPaint, rect, text)
         val bounds = calculateBounds(textPaint, rect, text)
 
-        canvas.drawText(text, rect.left.toFloat(),   bounds.top - textPaint.ascent(), textPaint)
+        canvas.drawText(text, rect.left.toFloat(), bounds.top - textPaint.ascent(), textPaint)
 
-        canvas.drawLine(rect.left.toFloat(), rect.exactCenterY(), rect.right.toFloat(), rect.exactCenterY(), paint) //for testing
+        canvas.drawLine(
+            rect.left.toFloat(),
+            rect.exactCenterY(),
+            rect.right.toFloat(),
+            rect.exactCenterY(),
+            paint
+        ) //for testing
         canvas.drawRect(rect, paint) //for testing
 
         canvas.save()

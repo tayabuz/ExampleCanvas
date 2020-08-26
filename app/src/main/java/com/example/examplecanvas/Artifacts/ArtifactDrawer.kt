@@ -3,32 +3,27 @@ package com.example.examplecanvas.Artifacts
 import android.graphics.Bitmap
 import android.graphics.Canvas
 
-class ArtifactDrawer constructor()
-{
+class ArtifactDrawer constructor() {
     constructor(artifacts: Array<DrawArtifact>) : this() {
-        artifacts.toCollection(Artifacts)
+        artifacts.toCollection(this.artifacts)
     }
 
-    fun drawInBitmap(width: Int, height: Int):Bitmap
-    {
-        val extraBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val extraCanvas = Canvas(extraBitmap)
-        for (artifact in Artifacts){
-            artifact.onDraw(extraCanvas)
+    fun drawInBitmap(width: Int, height: Int): Bitmap {
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        for (artifact in artifacts) {
+            artifact.onDraw(canvas)
         }
-        return extraBitmap
+        return bitmap
     }
 
-    var Artifacts: MutableList<DrawArtifact> = mutableListOf()
-        get
-        private set
+    private var artifacts: MutableList<DrawArtifact> = mutableListOf()
 
-
-    fun Add(artifact: DrawArtifact){
-        Artifacts.add(artifact)
+    fun add(artifact: DrawArtifact) {
+        artifacts.add(artifact)
     }
 
-    fun AddAll(artifacts: Iterable<DrawArtifact>){
-        Artifacts.addAll(artifacts)
+    fun addAll(artifacts: Iterable<DrawArtifact>) {
+        this.artifacts.addAll(artifacts)
     }
 }
